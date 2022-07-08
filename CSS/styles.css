@@ -45,8 +45,9 @@ img {
 .btn {
     display: inline-block;
     cursor: pointer;
-    box-shadow: 0 1px 0 rgba(0,0,0, 0.45);
+    border: 1px solid #DDD;
     border-radius: 4px;
+    background-color: #FFF;
 }
 
 .btn:hover {
@@ -60,19 +61,64 @@ img {
 /* --------------------------- Header --------------------------- */
 header {
     width: 100%;
-    height: 200px;
+    height: 178px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
+    background-color: #FFF;
 }
 
 .header-top {
     height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header-logo img {
     width: 107px;
+}
+
+.header-buttons {
+    display: flex;
+    height: 48px;
+    text-align: center;
+    border-radius: 30px;
+    font-size: 15px;
+}
+
+.left-header-button {
+    padding: 15px 18px 18px;
+    font-weight: 500;
+}
+
+.middle-header-button {
+    padding: 15px 18px 18px;
+}
+
+.right-header-button {
+    padding: 15px 18px 18px;
+}
+
+#category-filter-bar {
+    z-index: 101;
+    display: flex;
+    justify-content: space-between;
+}
+
+#filters {
+    width: 90px;
+    height: 48px;
+    border-radius: 13px;
+}
+
+#next {
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    text-align: center;
+    line-height: 26px;
 }
 
 .categories {
@@ -80,8 +126,12 @@ header {
     height: 78px;
     overflow: hidden;
     display: flex;
+    justify-content: space-between;
 }
 
+.category {
+    font-size: 0.8em;
+}
 
 /* --------------------------- Listings --------------------------- */
 .rentals { /* grid container */

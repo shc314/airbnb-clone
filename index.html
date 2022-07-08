@@ -7,19 +7,26 @@
   <title>Vacation Homes & Condo Rentals - AirBnB Clone</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="content-wrap">
+<body>
     <main>
     <!-- **********************  HEADER / MENU  *********************** -->
     <header>
-        <div class="header-top content-wrap">
-            <div class="header-logo">
-                <a href="#"><img src="img/logo.png" alt="airbnb"></a>
-            </div>
-            <div class="header-buttons">
-                <!-- Need buttons for Anywhere, Any week, Add guests and Search -->
-            </div>
-            <div class="header-right">
-                <!-- Become a Host, Language and Region, Menu -->
+        <div class="content-wrap">
+            <div class="header-top">
+                <div class="header-logo">
+                    <a href="#"><img src="img/logo.png" alt="airbnb"></a>
+                </div>
+                <div class="header-buttons btn">
+                    <a class="left-header-button">Anywhere</a>
+                    <a class="middle-header-button">Any week</a>
+                    <a class="middle-header-button">Add guests</a>
+                    <a class="right-header-button">S</a>
+                </div>
+                <div class="header-right">
+                    <a class="btn">Become a Host</a>
+                    <a class="btn">L</a>
+                    <a class="btn">Menu</a>
+                </div>
             </div>
         </div>
         <div id="category-filter-bar" class="content-wrap">
@@ -35,138 +42,115 @@
                 <div class="category">Amazing pools</div>
                 <div class="category">Design</div>
                 <div class="category">Arctic</div>
-                <div class="category">A-frames</div>
-                <div class="category">Treehouses</div>
-                <div class="category">Surfing</div>
-                <div class="category">Amazing views</div>
-                <div class="category">Caves</div>
-                <div class="category">Golfing</div>
-                <div class="category">Countryside</div>
-                <div class="category">Earth homes</div>
-                <div class="category">Shared homes</div>
-                <div class="category">Luxe</div>
-                <div class="category">Tropical</div>
-                <div class="category">Bed & Breakfasts</div>
-                <div class="category">Castles</div>
-                <div class="category">Farms</div>
-                <div class="category">Chef's kitchens</div>
-                <div class="category">Yurts</div>
-                <div class="category">Iconic cities</div>
-                <div class="category">Historical homes</div>
-                <div class="category">Barns</div>
-                <div class="category">Campers</div>
-                <div class="category">Cycladic homes</div>
-                <div class="category">Mansions</div>
-                <div class="category">Vineyards</div>
-                <div class="category">Casas pariculares</div>
             </div>
-            <a class="btn" href="#">></a>
-            <div class="filters"></div>
+            <a class="btn" id="next" href="#">></a>
+            <button id="filters" class="btn">Filters</button>
         </div>
     </header>
     
     <!-- *************************  LISTINGS  ************************* -->
-    <section class="rentals content-wrap">
-        <div class="listing">
-            <div class="listing-photos">
-                <img src="img/listing1img1.webp">
-            </div>
-            <div class="listing-details">
-                <div class="location">Bass Lake, California</div>
-                <div class="distance">132 miles away</div>
-                <div class="dates">Sep 2-9</div>
-                <div class="price">$1,408 night</div>
-                <div class="rating">5.0</div>
-            </div>
-        </div>
-        <div class="listing">
-            <div class="listing-photos">
-                <img src="img/listing2img1.webp">
-            </div>
-            <div class="listing-details">
-                <div class="location">Glenbrook, Nevada</div>
-                <div class="distance">160 miles away</div>
-                <div class="dates">Oct 2-7</div>
-                <div class="price">$950 night</div>
-                <div class="rating">4.97</div>
-            </div>
-        </div>
-        <div class="listing">
-            <div class="listing-photos">
-                <img src="img/listing3img1.webp">
-            </div>
-            <div class="listing-details">
-                <div class="location">Glenbrook, Nevada</div>
-                <div class="distance">160 miles away</div>
-                <div class="dates">Oct 2-7</div>
-                <div class="price">$950 night</div>
-                <div class="rating">4.79</div>
-            </div>
+    <div class="content-wrap">
+        <section class="rentals">
+            <div class="listing">
+                <div class="listing-photos">
+                    <img src="img/listing1img1.webp">
+                </div>
+                <div class="listing-details">
+                    <div class="location">Bass Lake, California</div>
+                    <div class="distance">132 miles away</div>
+                    <div class="dates">Sep 2-9</div>
+                    <div class="price">$1,408 night</div>
+                    <div class="rating">5.0</div>
+                </div>
 </div>
-        <div class="listing">
-    <div class="listing-photos">
-        <img src="img/listing4img1.webp">
-    </div>
-    <div class="listing-details">
-        <div class="location">Glenbrook, Nevada</div>
-        <div class="distance">158 miles away</div>
-        <div class="dates">Jul 12-17</div>
-        <div class="price">$20,000 night</div>
-        <div class="rating">New</div>
-    </div>
+            <div class="listing">
+                <div class="listing-photos">
+                    <img src="img/listing2img1.webp">
+                </div>
+                <div class="listing-details">
+                    <div class="location">Glenbrook, Nevada</div>
+                    <div class="distance">160 miles away</div>
+                    <div class="dates">Oct 2-7</div>
+                    <div class="price">$950 night</div>
+                    <div class="rating">4.97</div>
+                </div>
+</div>
+            <div class="listing">
+                <div class="listing-photos">
+                    <img src="img/listing3img1.webp">
+                </div>
+                <div class="listing-details">
+                    <div class="location">Glenbrook, Nevada</div>
+                    <div class="distance">160 miles away</div>
+                    <div class="dates">Oct 2-7</div>
+                    <div class="price">$950 night</div>
+                    <div class="rating">4.79</div>
+                </div>
+</div>
+            <div class="listing">
+        <div class="listing-photos">
+            <img src="img/listing4img1.webp">
+        </div>
+        <div class="listing-details">
+            <div class="location">Glenbrook, Nevada</div>
+            <div class="distance">158 miles away</div>
+            <div class="dates">Jul 12-17</div>
+            <div class="price">$20,000 night</div>
+            <div class="rating">New</div>
+        </div>
 
 </div>
-        <div class="listing">
-            <div class="listing-photos">
-                <img src="img/listing5img1.webp">
-            </div>
-            <div class="listing-details">
-                <div class="location">Tahoma, California</div>
-                <div class="distance">154 miles away</div>
-                <div class="dates">Sep 26-Oct 1</div>
-                <div class="price">$3,000 night</div>
-                <div class="rating">4.8</div>
-            </div>
-        </div>
-        <div class="listing">
-            <div class="listing-photos">
-                <img src="img/listing6img1.webp">
-            </div>
-            <div class="listing-details">
-                <div class="location">Carnelian Bay, California</div>
-                <div class="distance">165 miles away</div>
-                <div class="dates">Sep 1-8</div>
-                <div class="price">$8,700 night</div>
-                <div class="rating">New</div>
-            </div>
-        </div>
-        <div class="listing">
-            <div class="listing-photos">
-                <img src="img/listing7img1.webp">
-            </div>
-            <div class="listing-details">
-                <div class="location">Meeks Bay, California</div>
-                <div class="distance">153 miles away</div>
-                <div class="dates">Jul 10-17</div>
-                <div class="price">$14,000 night</div>
-                <div class="rating">New</div>
-            </div>
+            <div class="listing">
+                <div class="listing-photos">
+                    <img src="img/listing5img1.webp">
+                </div>
+                <div class="listing-details">
+                    <div class="location">Tahoma, California</div>
+                    <div class="distance">154 miles away</div>
+                    <div class="dates">Sep 26-Oct 1</div>
+                    <div class="price">$3,000 night</div>
+                    <div class="rating">4.8</div>
+                </div>
 </div>
-        <div class="listing">
-    <div class="listing-photos">
-        <img src="img/listing8img1.webp">
-    </div>
-    <div class="listing-details">
-        <div class="location">South Lake Tahoe, California</div>
-        <div class="distance">154 miles away</div>
-        <div class="dates">Sep 1-7</div>
-        <div class="price">$1,415 night</div>
-        <div class="rating">4.6</div>
-    </div>
+            <div class="listing">
+                <div class="listing-photos">
+                    <img src="img/listing6img1.webp">
+                </div>
+                <div class="listing-details">
+                    <div class="location">Carnelian Bay, California</div>
+                    <div class="distance">165 miles away</div>
+                    <div class="dates">Sep 1-8</div>
+                    <div class="price">$8,700 night</div>
+                    <div class="rating">New</div>
+                </div>
+</div>
+            <div class="listing">
+                <div class="listing-photos">
+                    <img src="img/listing7img1.webp">
+                </div>
+                <div class="listing-details">
+                    <div class="location">Meeks Bay, California</div>
+                    <div class="distance">153 miles away</div>
+                    <div class="dates">Jul 10-17</div>
+                    <div class="price">$14,000 night</div>
+                    <div class="rating">New</div>
+                </div>
+</div>
+            <div class="listing">
+        <div class="listing-photos">
+            <img src="img/listing8img1.webp">
+        </div>
+        <div class="listing-details">
+            <div class="location">South Lake Tahoe, California</div>
+            <div class="distance">154 miles away</div>
+            <div class="dates">Sep 1-7</div>
+            <div class="price">$1,415 night</div>
+            <div class="rating">4.6</div>
+        </div>
 
 </div>
-    </section>
-        
+        </section>
+    </div>
     <!-- ***********************  FOOTER LINKS  *********************** -->
     <footer>
         <div class="content-wrap">
