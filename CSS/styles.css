@@ -1,4 +1,4 @@
-/* --------------------------- Base styles --------------------------- */
+/* ================================ Base styles ================================ */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -42,11 +42,17 @@ img {
 }
 
 /* Buttons */
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
 .btn {
     display: inline-block;
     cursor: pointer;
     border: 1px solid #DDD;
-    border-radius: 4px;
+/*    border-radius: 4px;*/
     background-color: #FFF;
 }
 
@@ -58,7 +64,8 @@ img {
 	border-radius: 4px;
 }
 
-/* --------------------------- Header --------------------------- */
+/* ================================ Header ================================ */
+/* ---------------------------- Header Top Left --------------------------- */
 header {
     width: 100%;
     height: 178px;
@@ -70,6 +77,10 @@ header {
 }
 
 .header-top {
+    border-bottom: 1px solid #DDD;
+}
+
+.header-top-container {
     height: 80px;
     display: flex;
     align-items: center;
@@ -80,14 +91,19 @@ header {
     width: 107px;
 }
 
-.header-buttons {
+/* ---------------------------- Header Top Middle --------------------------- */
+.header-button-container {
     display: flex;
     height: 48px;
     text-align: center;
     border-radius: 30px;
-    font-size: 15px;
 }
 
+.header-button {
+    padding: 14px 18px 19px;
+    font-size: 15px;
+}
+/*
 .left-header-button {
     padding: 15px 18px 18px;
     font-weight: 500;
@@ -100,17 +116,84 @@ header {
 .right-header-button {
     padding: 15px 18px 18px;
 }
+*/
 
+.btn-separator-line {
+    flex: 0 0 1px;
+    height: 24px;
+    width: 1px;
+    background-color: #DDD;
+}
+
+/* ---------------------------- Header Top Right --------------------------- */
+.header-right-container {
+    display: flex;
+    align-items: center;
+}
+
+.become-host-link {
+/*    width: 123px;*/
+    height: 42px;
+    border-radius: 30px;
+    border: none;
+    padding: 14px 15px 16px;
+    font-size: 14px;
+}
+
+.become-host-link:hover {
+    background-color: #F7F7F7;
+}
+
+.choose-language {
+    width: 40px;
+    height: 42px;
+    padding: 13px;
+    margin-left: -7px;
+}
+
+.choose-language img {
+    width: 16px;
+    height: 16px;
+}
+
+.choose-language:hover {
+    background-color: #F7F7F7;
+    border-radius: 22px;
+}
+
+.signup {
+    width: 77px;
+    height: 42px;
+    border: 1px solid #DDD;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+img#menu {
+    width: 12px;
+    height: 12px;
+}
+
+img#account {
+    width: 30px;
+    height: 30px;
+}
+
+/* --------------------------- Header Bottom Half --------------------------- */
 #category-filter-bar {
     z-index: 101;
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
 #filters {
     width: 90px;
     height: 48px;
     border-radius: 13px;
+/*    margin-top: 12px;*/
 }
 
 #next {
@@ -131,9 +214,34 @@ header {
 
 .category {
     font-size: 0.8em;
+    color: rgba(0,0,0,.6);
+/*    height: 48px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 66px;
+/*    margin-top: 12px;*/
+    padding: 4px 0 14px;
 }
 
-/* --------------------------- Listings --------------------------- */
+/*.category-btn {
+    height: 66px;
+    margin-top: 12px;
+    padding: 4px 0 14px;
+}*/
+
+.category:hover {
+    border-bottom: 2px solid #DDD;
+    color: #000;
+}
+
+.category img {
+    width: 24px;
+    height: 24px;
+}
+
+/* ================================ Listings ================================ */
 .rentals { /* grid container */
     position: absolute;
     top: 200px;
@@ -182,7 +290,7 @@ header {
     grid-row-start: -5;
 }
 
-/* ------------------------- Footer Links ------------------------- */
+/* ================================ Footer Links ================================ */
 footer {
     background: #F9F9F9;
     position: fixed;

@@ -11,41 +11,47 @@
     <main>
     <!-- **********************  HEADER / MENU  *********************** -->
     <header>
-        <div class="content-wrap">
-            <div class="header-top">
-                <div class="header-logo">
-                    <a href="#"><img src="img/logo.png" alt="airbnb"></a>
-                </div>
-                <div class="header-buttons btn">
-                    <a class="left-header-button">Anywhere</a>
-                    <a class="middle-header-button">Any week</a>
-                    <a class="middle-header-button">Add guests</a>
-                    <a class="right-header-button">S</a>
-                </div>
-                <div class="header-right">
-                    <a class="btn">Become a Host</a>
-                    <a class="btn">L</a>
-                    <a class="btn">Menu</a>
+        <div class="header-top">
+            <div class="content-wrap">
+                <div class="header-top-container">
+                    <div class="header-logo">
+                        <a href="#"><img src="img/logo.png" alt="airbnb"></a>
+                    </div>
+                    <div class="header-button-container btn">
+                        <button class="header-button">Anywhere</button>
+                        <span class="button-separator-line"></span>
+                        <button class="header-button">Any week</button>
+                        <span class="button-separator-line"></span>
+                        <button class="header-button">Add guests</button>
+                        <button class="header-button">S</button>
+                    </div>
+                    <div class="header-right-container">
+                        <a class="btn become-host-link">Become a Host</a>
+                        <button class="choose-language"><img src="img/region.png"></button>
+                        <button class="signup btn"><img id="menu" src="img/menu.png"><img id="account" src="img/account.png"></button>
+                    </div>
                 </div>
             </div>
         </div>
         <div id="category-filter-bar" class="content-wrap">
-            <div class="categories">
-                <div class="category">Lakefront</div>
-                <div class="category">National parks</div>
-                <div class="category">Cabins</div>
-                <div class="category">Islands</div>
-                <div class="category">Beach</div>
-                <div class="category">Tiny homes</div>
-                <div class="category">OMG!</div>
-                <div class="category">Camping</div>
-                <div class="category">Amazing pools</div>
-                <div class="category">Design</div>
-                <div class="category">Arctic</div>
+        <div class="categories">
+            <div class="category">
+                <img src="img/24x24placeholder.png"><span>Lakefront</span>
             </div>
-            <a class="btn" id="next" href="#">></a>
-            <button id="filters" class="btn">Filters</button>
+            <div class="category"><img src="img/24x24placeholder.png"><span>National parks</span></div>
+            <div class="category"><img src="img/24x24placeholder.png"><span>Cabins</span></div>
+            <div class="category"><img src="img/24x24placeholder.png"><span>Islands</span></div>
+            <div class="category"><img src="img/24x24placeholder.png"><span>Beach</span></div>
+            <div class="category"><img src="img/24x24placeholder.png"><span>Tiny homes</span></div>
+            <div class="category"><img src="img/24x24placeholder.png"><span>OMG!</span></div>
+            <div class="category"><img src="img/24x24placeholder.png"><span>Camping</span></div>
+            <div class="category"><img src="img/24x24placeholder.png"><span>Amazing pools</span></div>
+            <div class="category"><img src="img/24x24placeholder.png"><span>Design</span></div>
+            <div class="category"><img src="img/24x24placeholder.png"><span>Arctic</span></div>
         </div>
+        <a class="btn" id="next" href="#">></a>
+        <button id="filters" class="btn">Filters</button>
+    </div>
     </header>
     
     <!-- *************************  LISTINGS  ************************* -->
