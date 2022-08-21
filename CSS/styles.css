@@ -52,16 +52,15 @@ button {
     display: inline-block;
     cursor: pointer;
     border: 1px solid #DDD;
-/*    border-radius: 4px;*/
     background-color: #FFF;
 }
 
 .btn:hover {
-
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 4px 6px;
 }
 
 .btn-rounded {
-	border-radius: 4px;
+    border-radius: 4px;
 }
 
 /* ================================ Header ================================ */
@@ -97,28 +96,15 @@ header {
     height: 48px;
     text-align: center;
     border-radius: 30px;
+    align-items: center;
 }
 
 .header-button {
     padding: 14px 18px 19px;
     font-size: 15px;
 }
-/*
-.left-header-button {
-    padding: 15px 18px 18px;
-    font-weight: 500;
-}
 
-.middle-header-button {
-    padding: 15px 18px 18px;
-}
-
-.right-header-button {
-    padding: 15px 18px 18px;
-}
-*/
-
-.btn-separator-line {
+.button-separator-line {
     flex: 0 0 1px;
     height: 24px;
     width: 1px;
@@ -182,21 +168,25 @@ img#account {
 }
 
 /* --------------------------- Header Bottom Half --------------------------- */
-#category-filter-bar {
+.header__bottom {
     z-index: 101;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 20px;
+    flex-wrap: nowrap;
 }
 
-#filters {
-    width: 90px;
-    height: 48px;
-    border-radius: 13px;
-/*    margin-top: 12px;*/
+.carousel-wrapper {
+    width: 90%;
+    height: 78px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
-#next {
+.carousel-arrow {
     width: 28px;
     height: 28px;
     border-radius: 14px;
@@ -204,32 +194,37 @@ img#account {
     line-height: 26px;
 }
 
-.categories {
-    width: 80%;
-    height: 78px;
-    overflow: hidden;
+.carousel-category-container {
+    width: 100%; /* this fixed the issue with the arrows getting squished */
     display: flex;
     justify-content: space-between;
+    flex-wrap: nowrap;
+    column-gap: 34px;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+/* WebKit hide scrollbar */
+.carousel-category-container::-webkit-scrollbar { 
+    width: 0;
+    height: 0;
 }
 
 .category {
     font-size: 0.8em;
     color: rgba(0,0,0,.6);
-/*    height: 48px;*/
+    flex: 0 0 content;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     height: 66px;
-/*    margin-top: 12px;*/
-    padding: 4px 0 14px;
-}
-
-/*.category-btn {
-    height: 66px;
     margin-top: 12px;
     padding: 4px 0 14px;
-}*/
+    border-bottom: 2px solid #FFF;
+}
 
 .category:hover {
     border-bottom: 2px solid #DDD;
@@ -239,6 +234,17 @@ img#account {
 .category img {
     width: 24px;
     height: 24px;
+    opacity: 0.9;
+}
+
+.category img:hover {
+    opacity: 1;
+}
+
+.button__filters {
+    width: 90px;
+    height: 48px;
+    border-radius: 13px;
 }
 
 /* ================================ Listings ================================ */
