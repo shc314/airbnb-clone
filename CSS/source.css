@@ -1,0 +1,434 @@
+/* ================================ Base styles ================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased; /* do I need this? */
+    background: #FFF;
+    color:#222;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 
+h1, h2, h3, h3, h4 {
+    user-scroll: auto;
+}
+*/
+
+a {
+    color: #222;
+    text-decoration: none;
+}
+
+
+p {
+    margin: 0.5rem 0;
+}
+
+img {
+    width: 100%;
+}
+
+.content-wrap {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Buttons */
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #DDD;
+    background-color: #FFF;
+}
+
+.btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 4px 6px;
+}
+
+.btn-rounded {
+    border-radius: 4px;
+}
+
+/* ================================ Header ================================ */
+/* ---------------------------- Header Top Left --------------------------- */
+header {
+    width: 100%;
+    height: 178px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #FFF;
+}
+
+.header-top {
+    border-bottom: 1px solid #DDD;
+}
+
+.header-top-container {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo img {
+    width: 107px;
+}
+
+/* ---------------------------- Header Top Middle --------------------------- */
+.header-button-container {
+    display: flex;
+    height: 48px;
+    text-align: center;
+    border-radius: 30px;
+    align-items: center;
+}
+
+.header-button {
+    padding: 14px 18px 19px;
+    font-size: 15px;
+}
+
+.button-separator-line {
+    flex: 0 0 1px;
+    height: 24px;
+    width: 1px;
+    background-color: #DDD;
+}
+
+/* ---------------------------- Header Top Right --------------------------- */
+.header-right-container {
+    display: flex;
+    align-items: center;
+}
+
+.become-host-link {
+/*    width: 123px;*/
+    height: 42px;
+    border-radius: 30px;
+    border: none;
+    padding: 14px 15px 16px;
+    font-size: 14px;
+}
+
+.become-host-link:hover {
+    background-color: #F7F7F7;
+}
+
+.choose-language {
+    width: 40px;
+    height: 42px;
+    padding: 13px;
+    margin-left: -7px;
+}
+
+.choose-language img {
+    width: 16px;
+    height: 16px;
+}
+
+.choose-language:hover {
+    background-color: #F7F7F7;
+    border-radius: 22px;
+}
+
+.signup {
+    width: 77px;
+    height: 42px;
+    border: 1px solid #DDD;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+img#menu {
+    width: 12px;
+    height: 12px;
+}
+
+img#account {
+    width: 30px;
+    height: 30px;
+}
+
+/* --------------------------- Header Bottom Half --------------------------- */
+.header__bottom {
+    z-index: 101;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: nowrap;
+}
+
+.carousel-wrapper {
+    width: 90%;
+    height: 78px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-arrow {
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    text-align: center;
+    line-height: 26px;
+}
+
+.carousel-category-container {
+    width: 100%; /* this fixed the issue with the arrows getting squished */
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    column-gap: 34px;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+/* WebKit hide scrollbar */
+.carousel-category-container::-webkit-scrollbar { 
+    width: 0;
+    height: 0;
+}
+
+.category {
+    font-size: 0.8em;
+    color: rgba(0,0,0,.6);
+    flex: 0 0 content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 66px;
+    margin-top: 12px;
+    padding: 4px 0 14px;
+    border-bottom: 2px solid #FFF;
+}
+
+.category:hover {
+    border-bottom: 2px solid #DDD;
+    color: #000;
+}
+
+.category img {
+    width: 24px;
+    height: 24px;
+    opacity: 0.9;
+}
+
+.category img:hover {
+    opacity: 1;
+}
+
+.button__filters {
+    width: 90px;
+    height: 48px;
+    border-radius: 13px;
+}
+
+/* ================================ Listings ================================ */
+.rentals { /* grid container */
+    position: absolute;
+    top: 200px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 392px 392px;
+    grid-column-gap: 25px;
+    grid-row-gap: 25px;
+}
+
+.listing { /* grid items */
+    
+}
+
+.listing-photos img {
+    width: 295px;
+    height: 280px; /* the images are kinda stretched */
+    border-radius: 13px;
+}
+
+.listing-details { /* grid container */
+    display: grid;
+    grid-template-columns: 81% 16%;
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 3%;
+}
+.location {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 19px;
+}
+
+.distance, .dates {
+    color: #888888;
+    margin: 0;
+}
+
+.distance, .dates, .price {
+    grid-column-start: 1;
+}
+.price {
+    margin-top: 6px;
+}
+.rating {
+    grid-column-start: 2;
+    grid-row-start: -5;
+}
+
+/* ================================ Footer Links ================================ */
+footer {
+    background: #F9F9F9;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: .9rem;
+    width: 100%;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-links li {
+    display: inline-block;
+}
+
+.footer-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.footer-left {
+    padding: 14px;
+}
+
+.footer-right {
+    padding: 14px;
+}
+
+@media(max-width: 1127px) {
+
+    .header-logo img {
+        width: 30px;
+    }
+
+    .rentals { /* grid container */
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 410px;
+    }
+
+    .listing-photos img {
+        width: 326px;
+        height: 310px; /* the images look stretched */
+    }
+}
+
+@media(max-width: 949px) {
+
+    .header-top-container {
+        justify-content: start; /* that's not quite right */
+    }
+
+    .header-button-container {
+        margin: 0 24px;
+    }
+
+    .header-right-container { /* how to get it right-aligned? */
+        flex: 1 0 auto;
+    }
+
+    .rentals { /* grid container */
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 500px;
+    }
+
+    .listing-photos img {
+        width: 419px;
+        height: 398px; /* images look stretched */
+    }
+}
+
+@media(max-width: 743px) {
+
+   /* Everything in header-top becomes "Where to?" */
+   /* The bottom menu changes, too. */
+
+    .header-logo img {
+        display: none;
+    }
+
+    .header-right-container {
+        display: none;
+    }
+
+    .header__bottom {
+        width: 100%;
+    }
+
+    .carousel-wrapper {
+        width: 100%;
+    }
+
+    .carousel-category-container {
+        column-gap: 18px;
+    }
+
+    .carousel-category-container li:first-child {
+        padding-left: 24px;
+    }
+
+    .carousel-arrow {
+        display: none;
+    }
+
+    .button__filters {
+        display: none;
+    }
+
+    .rentals { /* grid container */
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 420px;
+    }
+
+    .listing-photos img {
+        width: 337px;
+        height: 320px; /* images look stretched */
+    }
+}
+
+@media(max-width: 549px) {
+ 
+     .rentals { /* grid container */
+         grid-template-columns: 1fr;
+         grid-auto-rows: 578px;
+     }
+ 
+     .listing-photos img {
+         width: 503px;
+         height: 476px; /* images look stretched */
+     }
+ }
