@@ -1,0 +1,33 @@
+{
+  "name": "airbnb-clone",
+  "version": "1.0.0",
+  "description": "My AirBnB Clone Project",
+  "scripts": {
+    "build": "postcss ./CSS/source.css --use autoprefixer -o ./CSS/styles.css",
+    "watch": "postcss ./CSS/source.css --use autoprefixer -o ./CSS/styles.css --watch "
+  },
+  "browserslist": [
+    "> 1%",
+    "last 8 versions",
+    "not dead"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shc314/airbnb-clone.git"
+  },
+  "keywords": [
+    "Html",
+    "CSS"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shc314/airbnb-clone/issues"
+  },
+  "homepage": "https://github.com/shc314/airbnb-clone#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.8",
+    "postcss": "^8.4.16",
+    "postcss-cli": "^10.0.0"
+  }
+}
