@@ -4,9 +4,220 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AirBnB Clone</title>
+  <title>Vacation Homes & Condo Rentals - AirBnB Clone</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <h1>Hello World</h1>
+    <main>
+    <!-- **********************  HEADER / MENU  *********************** -->
+    <header>
+        <div class="header-top">
+            <div class="content-wrap">
+                <div class="header-top-container">
+                    <div class="header-logo">
+                        <a href="#">
+                            <picture>
+                                <source media="(max-width: 1127px)" srcset="img/logo-s.png">
+                                <img src="img/logo.png" alt="airbnb">
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="header-button-container btn">
+                        <div class="header-button-container-text">
+                            <div class="header-button-container-top">Where to?</div>
+                            <div class="header-button-container-bottom">
+                                <button class="header-button">Anywhere</button>
+                                <span class="button-separator-line"></span>
+                                <button class="header-button">Any week</button>
+                                <span class="button-separator-line"></span>
+                                <button class="header-button">Add guests</button>
+                            </div>
+                        </div>
+                        <button class="search-button">S</button>
+                        <button class="button__filters-small"><img class="filter-icon" src="img/filters.png"></button>
+                    </div>
+                    <div class="header-right-container">
+                        <a class="btn become-host-link">Become a Host</a>
+                        <button class="choose-language"><img src="img/region.png"></button>
+                        <button class="signup btn"><img class="menu" src="img/menu.png"><img class="account" src="img/account.png"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__bottom">
+            <div class="carousel-wrapper">
+                <button class="btn carousel-arrow" id="carousel-arrow-prev">&#10094;</button>
+                <ul class="carousel-category-container">
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Lakefront</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>National parks</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Cabins</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Islands</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Beach</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Tiny homes</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>OMG!</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Camping</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Amazing pools</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Design</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Arctic</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>A-frames</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Treehouses</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Surfing</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Amazing views</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Caves</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Golfing</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Countryside</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Earth homes</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Shared homes</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Luxe</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Tropical</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Bed & Breakfasts</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Castles</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Farms</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Chef's kitchens</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Yurts</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Iconic cities</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Historical homes</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Barns</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Campers</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Cycladic homes</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Mansions</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Vineyards</span></li>
+                    <li class="category"><img src="img/24x24placeholder.png"><span>Casas pariculares</span></li>
+                </ul>
+                <button class="btn carousel-arrow" id="carousel-arrow-next">&#10095;</button>
+            </div>
+            <button class="btn button__filters"><img class="filter-icon" src="img/filters.png">Filters</button>
+        </div>
+    </header>
+    
+    <!-- *************************  LISTINGS  ************************* -->
+    <div class="content-wrap">
+        <section class="rentals">
+            <div class="listing">
+                <div class="listing-photos">
+                    <img src="img/listing1img1.webp">
+                </div>
+                <div class="listing-details">
+                    <div class="location">Bass Lake, California</div>
+                    <div class="distance">132 miles away</div>
+                    <div class="dates">Sep 2-9</div>
+                    <div class="price">$1,408 night</div>
+                    <div class="rating">5.0</div>
+                </div>
+            </div>
+            <div class="listing">
+                <div class="listing-photos">
+                    <img src="img/listing2img1.webp">
+                </div>
+                <div class="listing-details">
+                    <div class="location">Glenbrook, Nevada</div>
+                    <div class="distance">160 miles away</div>
+                    <div class="dates">Oct 2-7</div>
+                    <div class="price">$950 night</div>
+                    <div class="rating">4.97</div>
+                </div>
+            </div>
+            <div class="listing">
+                <div class="listing-photos">
+                    <img src="img/listing3img1.webp">
+                </div>
+                <div class="listing-details">
+                    <div class="location">Glenbrook, Nevada</div>
+                    <div class="distance">160 miles away</div>
+                    <div class="dates">Oct 2-7</div>
+                    <div class="price">$950 night</div>
+                    <div class="rating">4.79</div>
+                </div>
+            </div>
+            <div class="listing">
+                <div class="listing-photos">
+                    <img src="img/listing4img1.webp">
+                </div>
+                <div class="listing-details">
+                    <div class="location">Glenbrook, Nevada</div>
+                    <div class="distance">158 miles away</div>
+                    <div class="dates">Jul 12-17</div>
+                    <div class="price">$20,000 night</div>
+                    <div class="rating">New</div>
+                </div>
+            </div>
+            <div class="listing">
+                <div class="listing-photos">
+                    <img src="img/listing5img1.webp">
+                </div>
+                <div class="listing-details">
+                    <div class="location">Tahoma, California</div>
+                    <div class="distance">154 miles away</div>
+                    <div class="dates">Sep 26-Oct 1</div>
+                    <div class="price">$3,000 night</div>
+                    <div class="rating">4.8</div>
+                </div>
+            </div>
+            <div class="listing">
+                <div class="listing-photos">
+                    <img src="img/listing6img1.webp">
+                </div>
+                <div class="listing-details">
+                    <div class="location">Carnelian Bay, California</div>
+                    <div class="distance">165 miles away</div>
+                    <div class="dates">Sep 1-8</div>
+                    <div class="price">$8,700 night</div>
+                    <div class="rating">New</div>
+                </div>
+            </div>
+            <div class="listing">
+                <div class="listing-photos">
+                    <img src="img/listing7img1.webp">
+                </div>
+                <div class="listing-details">
+                    <div class="location">Meeks Bay, California</div>
+                    <div class="distance">153 miles away</div>
+                    <div class="dates">Jul 10-17</div>
+                    <div class="price">$14,000 night</div>
+                    <div class="rating">New</div>
+                </div>
+            </div>
+            <div class="listing">
+                <div class="listing-photos">
+                    <img src="img/listing8img1.webp">
+                </div>
+                <div class="listing-details">
+                    <div class="location">South Lake Tahoe, California</div>
+                    <div class="distance">154 miles away</div>
+                    <div class="dates">Sep 1-7</div>
+                    <div class="price">$1,415 night</div>
+                    <div class="rating">4.6</div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- ***********************  FOOTER LINKS  *********************** -->
+    <footer>
+        <div class="content-wrap">
+            <div class="footer-container">
+            <div class="footer-left">
+                <ul class="footer-links">
+                    <li>© 2022 Airbnb, Inc.</li>
+                    <li>·</li>
+                    <li><a href="https://www.airbnb.com/terms/privacy_policy">Privacy</a></li>
+                    <li>·</li>
+                    <li><a href = "https://www.airbnb.com/terms">Terms</a></li>
+                    <li>·</li>
+                    <li><a href="https://www.airbnb.com/sitemaps/v2">Sitemap</a></li>
+                    <li>·</li>
+                    <li>Destinations</li> <!-- it's a link that brings up a menu -->
+                </ul>
+            </div>
+            <div class="footer-right">
+                <ul class="footer-links">
+                    <li><a href="#">English</a></li>
+                    <li>$<a href="#">USD</a></li>
+                    <li><a href="#">Support & resources</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </footer>
+    </main>
 </body>
 </html>
