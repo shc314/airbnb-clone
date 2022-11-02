@@ -16,12 +16,6 @@ ul {
     list-style: none;
 }
 
-/* 
-h1, h2, h3, h3, h4 {
-    user-scroll: auto;
-}
-*/
-
 a {
     color: #222;
     text-decoration: none;
@@ -93,15 +87,44 @@ header {
 /* ---------------------------- Header Top Middle --------------------------- */
 .header-button-container {
     display: flex;
-    height: 48px;
-    text-align: center;
-    border-radius: 30px;
     align-items: center;
+    height: 48px;
+    border-radius: 30px;
+}
+
+.header-button-container-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    flex: 1 0 auto; /* pushes the filter to the right at 743px */
+}
+
+.header-button-container-top {
+   display: none;
+}
+
+.header-button-container-bottom {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 16px;
+    border: none;
 }
 
 .header-button {
     padding: 14px 18px 19px;
     font-size: 15px;
+}
+
+.search-button {
+    color: #FFF;
+    background-color: #ff385c;
+    border-radius: 50%;
+    font-size: 15px;
+    height: 32px;
+    width: 32px;
+    margin-right: 8px;
 }
 
 .button-separator-line {
@@ -111,10 +134,15 @@ header {
     background-color: #DDD;
 }
 
+.button__filters-small {
+    display: none;
+}
+
 /* ---------------------------- Header Top Right --------------------------- */
 .header-right-container {
     display: flex;
     align-items: center;
+    justify-content: right;
 }
 
 .become-host-link {
@@ -157,12 +185,12 @@ header {
     align-items: center;
 }
 
-img#menu {
+.menu {
     width: 12px;
     height: 12px;
 }
 
-img#account {
+.account {
     width: 30px;
     height: 30px;
 }
@@ -249,6 +277,11 @@ img#account {
     border-radius: 13px;
 }
 
+.filter-icon {
+    width: 14px;
+    height: 14px;
+}
+
 /* ================================ Listings ================================ */
 .rentals { /* grid container */
     position: absolute;
@@ -256,12 +289,12 @@ img#account {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 392px 392px;
-    grid-column-gap: 25px;
-    grid-row-gap: 25px;
+    column-gap: 25px;
+    row-gap: 25px;
 }
 
 .listing { /* grid items */
-    
+    /* might not need this */
 }
 
 .listing-photos img {
@@ -349,15 +382,11 @@ footer a:hover {
 
 @media(max-width: 949px) {
 
-    .header-top-container {
-        justify-content: start; /* that's not quite right */
-    }
-
     .header-button-container {
         margin: 0 24px;
     }
 
-    .header-right-container { /* how to get it right-aligned? */
+    .header-right-container {
         flex: 1 0 auto;
     }
 
@@ -377,12 +406,71 @@ footer a:hover {
    /* Everything in header-top becomes "Where to?" */
    /* The bottom menu changes, too. */
 
+   .header-top {
+        border: none;
+    }
+    
+    .header-top .content-wrap {
+        width: 100%;
+        padding: 14px 24px 0;
+    }
+
+    .header-top-container {
+        height: 55px;
+    }
+
     .header-logo img {
         display: none;
     }
 
     .header-right-container {
         display: none;
+    }
+
+    .header-button-container {
+        width: 100%;
+        height: 55px;
+        margin: 0;
+    }
+
+    .header-button-container-top {
+        font-size: 14px;
+        color:#000;
+        font-weight: 500;
+        display: block;
+    }
+
+    .header-button {
+        font-size: 12px;
+        color:rgba(0, 0, 0, 0.6);
+        padding: 0 3px;
+    }
+
+    .button-separator-line {
+        display: none;
+    }
+
+    .header-button:nth-child(n+2)::before {
+        content: "·";
+        padding-right: 3px;
+        display: inline;
+    }
+
+    .search-button {
+        margin: 0 8px;
+        background-color: #FFF;
+        color: #222;
+        font-size: 18px;
+        order: -1;
+    }
+
+    .button__filters-small {
+        display: block;
+        height: 36px;
+        width: 36px;
+        border: 1px solid #DDD;
+        border-radius: 25px;
+        margin: 0 10px;
     }
 
     .header__bottom {
