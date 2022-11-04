@@ -31,7 +31,7 @@ img {
 }
 
 .content-wrap {
-    width: 90%;
+    width: 94%;
     margin: 0 auto;
 }
 
@@ -146,7 +146,6 @@ header {
 }
 
 .become-host-link {
-/*    width: 123px;*/
     height: 42px;
     border-radius: 30px;
     border: none;
@@ -198,7 +197,7 @@ header {
 /* --------------------------- Header Bottom Half --------------------------- */
 .header__bottom {
     z-index: 101;
-    width: 90%;
+    width: 94%;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -208,7 +207,7 @@ header {
 }
 
 .carousel-wrapper {
-    width: 90%;
+    width: 92%;
     height: 78px;
     position: relative;
     overflow: hidden;
@@ -288,9 +287,10 @@ header {
     top: 200px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 392px 392px;
+    grid-auto-rows: auto auto;
     column-gap: 25px;
     row-gap: 25px;
+    width: inherit;
 }
 
 .listing { /* grid items */
@@ -298,8 +298,7 @@ header {
 }
 
 .listing-photos img {
-    width: 295px;
-    height: 280px; /* the images are kinda stretched */
+    aspect-ratio: 20 / 19;
     border-radius: 13px;
 }
 
@@ -363,6 +362,7 @@ footer a:hover {
     padding: 14px;
 }
 
+/* ================================ Media Queries ================================ */
 @media(max-width: 1127px) {
 
     .header-logo img {
@@ -371,12 +371,6 @@ footer a:hover {
 
     .rentals { /* grid container */
         grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 410px;
-    }
-
-    .listing-photos img {
-        width: 326px;
-        height: 310px; /* the images look stretched */
     }
 }
 
@@ -392,12 +386,6 @@ footer a:hover {
 
     .rentals { /* grid container */
         grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 500px;
-    }
-
-    .listing-photos img {
-        width: 419px;
-        height: 398px; /* images look stretched */
     }
 }
 
@@ -475,6 +463,7 @@ footer a:hover {
 
     .header__bottom {
         width: 100%;
+        margin-top: 0;
     }
 
     .carousel-wrapper {
@@ -499,12 +488,6 @@ footer a:hover {
 
     .rentals { /* grid container */
         grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 420px;
-    }
-
-    .listing-photos img {
-        width: 337px;
-        height: 320px; /* images look stretched */
     }
 }
 
@@ -512,11 +495,6 @@ footer a:hover {
  
      .rentals { /* grid container */
          grid-template-columns: 1fr;
-         grid-auto-rows: 578px;
-     }
- 
-     .listing-photos img {
-         width: 503px;
-         height: 476px; /* images look stretched */
      }
  }
+
