@@ -249,7 +249,7 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 66px;
+    height: 62px;
     margin-top: 12px;
     padding: 4px 0 14px;
     border-bottom: 2px solid #FFF;
@@ -283,14 +283,12 @@ header {
 
 /* ================================ Listings ================================ */
 .rentals { /* grid container */
-    position: absolute;
-    top: 200px;
+    margin-top: 200px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: auto auto;
     column-gap: 25px;
     row-gap: 25px;
-    width: inherit;
 }
 
 .listing { /* grid items */
@@ -300,6 +298,7 @@ header {
 .listing-photos img {
     aspect-ratio: 20 / 19;
     border-radius: 13px;
+    margin-bottom: 12px;
 }
 
 .listing-details { /* grid container */
@@ -327,38 +326,66 @@ header {
 }
 .rating {
     grid-column-start: 2;
-    grid-row-start: -5;
+    grid-row-start: 1;
+    text-align: right;
 }
 
 /* ================================ Footer Links ================================ */
 footer {
     background: #F9F9F9;
-    position: fixed;
-    bottom: 0;
-    left: 0;
     font-size: .9rem;
     width: 100%;
+    border-top: 1px #DDD solid;
+    margin-top: 40px;
 }
 
 footer a:hover {
     text-decoration: underline;
 }
 
-.footer-links li {
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.footer-section {
+    padding: 26px 0;
+}
+
+.footer-section h3 {
+    font-weight: 600;
+}
+
+.footer-section ul {
+    font-weight: 300;
+}
+
+.footer-section li {
+    margin-top: 12px;
+}
+
+.fixed-footer-links li {
     display: inline-block;
 }
 
-.footer-container {
+.fixed-footer-container {
+    background: #F9F9F9;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     display: flex;
     width: 100%;
     justify-content: space-between;
+    border-top: 1px #DDD solid;
 }
 
-.footer-left {
+.fixed-footer-left {
     padding: 14px;
 }
 
-.footer-right {
+.fixed-footer-right {
     padding: 14px;
 }
 
@@ -371,6 +398,7 @@ footer a:hover {
 
     .rentals { /* grid container */
         grid-template-columns: repeat(3, 1fr);
+        margin-top: 210px;
     }
 }
 
@@ -393,6 +421,11 @@ footer a:hover {
 
    /* Everything in header-top becomes "Where to?" */
    /* The bottom menu changes, too. */
+    
+   header {
+    height: 146px;
+    border-bottom: 1px solid #DDD;
+   }
 
    .header-top {
         border: none;
@@ -475,7 +508,7 @@ footer a:hover {
     }
 
     .carousel-category-container li:first-child {
-        padding-left: 24px;
+        margin-left: 24px;
     }
 
     .carousel-arrow {
@@ -488,6 +521,16 @@ footer a:hover {
 
     .rentals { /* grid container */
         grid-template-columns: repeat(2, 1fr);
+        margin-top: 168px;
+    }
+
+    .footer-content {
+        display: block;
+        margin-bottom: 40px;
+    }
+
+    .footer-section {
+        border-bottom: 1px #DDD solid;
     }
 }
 
