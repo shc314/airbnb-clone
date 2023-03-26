@@ -227,6 +227,10 @@ header {
     line-height: 26px;
 }
 
+.carousel-arrow-hidden {
+    display: none;
+}
+
 .carousel-category-container {
     width: 100%; /* this fixed the issue with the arrows getting squished */
     display: flex;
