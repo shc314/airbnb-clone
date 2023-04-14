@@ -16,12 +16,6 @@ ul {
     list-style: none;
 }
 
-/* 
-h1, h2, h3, h3, h4 {
-
-}
-*/
-
 a {
     color: #222;
     text-decoration: none;
@@ -37,7 +31,7 @@ img {
 }
 
 .content-wrap {
-    width: 90%;
+    width: 94%;
     margin: 0 auto;
 }
 
@@ -156,7 +150,6 @@ header {
 }
 
 .become-host-link {
-/*    width: 123px;*/
     height: 42px;
     border-radius: 30px;
     border: none;
@@ -208,7 +201,7 @@ header {
 /* --------------------------- Header Bottom Half --------------------------- */
 .header__bottom {
     z-index: 101;
-    width: 90%;
+    width: 94%;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -218,7 +211,7 @@ header {
 }
 
 .carousel-wrapper {
-    width: 90%;
+    width: 92%;
     height: 78px;
     position: relative;
     overflow: hidden;
@@ -243,7 +236,8 @@ header {
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
-    column-gap: 34px;
+    -moz-column-gap: 34px;
+         column-gap: 34px;
     overflow: scroll;
     scroll-behavior: smooth;
     scrollbar-width: none; /* Firefox */
@@ -264,7 +258,7 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 66px;
+    height: 62px;
     margin-top: 12px;
     padding: 4px 0 14px;
     border-bottom: 2px solid #FFF;
@@ -298,13 +292,13 @@ header {
 
 /* ================================ Listings ================================ */
 .rentals { /* grid container */
-    position: absolute;
-    top: 200px;
+    margin-top: 200px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 392px 392px;
-    grid-column-gap: 25px;
-    grid-row-gap: 25px;
+    grid-auto-rows: auto auto;
+    -moz-column-gap: 25px;
+         column-gap: 25px;
+    row-gap: 25px;
 }
 
 .listing { /* grid items */
@@ -312,9 +306,9 @@ header {
 }
 
 .listing-photos img {
-    width: 295px;
-    height: 280px; /* the images are kinda stretched */
+    aspect-ratio: 20 / 19;
     border-radius: 13px;
+    margin-bottom: 12px;
 }
 
 .listing-details { /* grid container */
@@ -342,41 +336,70 @@ header {
 }
 .rating {
     grid-column-start: 2;
-    grid-row-start: -5;
+    grid-row-start: 1;
+    text-align: right;
 }
 
 /* ================================ Footer Links ================================ */
 footer {
     background: #F9F9F9;
-    position: fixed;
-    bottom: 0;
-    left: 0;
     font-size: .9rem;
     width: 100%;
+    border-top: 1px #DDD solid;
+    margin-top: 40px;
 }
 
 footer a:hover {
     text-decoration: underline;
 }
 
-.footer-links li {
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.footer-section {
+    padding: 26px 0;
+}
+
+.footer-section h3 {
+    font-weight: 600;
+}
+
+.footer-section ul {
+    font-weight: 300;
+}
+
+.footer-section li {
+    margin-top: 12px;
+}
+
+.fixed-footer-links li {
     display: inline-block;
 }
 
-.footer-container {
+.fixed-footer-container {
+    background: #F9F9F9;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     display: flex;
     width: 100%;
     justify-content: space-between;
+    border-top: 1px #DDD solid;
 }
 
-.footer-left {
+.fixed-footer-left {
     padding: 14px;
 }
 
-.footer-right {
+.fixed-footer-right {
     padding: 14px;
 }
 
+/* ================================ Media Queries ================================ */
 @media(max-width: 1127px) {
 
     .header-logo img {
@@ -385,12 +408,7 @@ footer a:hover {
 
     .rentals { /* grid container */
         grid-template-columns: repeat(3, 1fr);
-        grid-auto-rows: 410px;
-    }
-
-    .listing-photos img {
-        width: 326px;
-        height: 310px; /* the images look stretched */
+        margin-top: 210px;
     }
 }
 
@@ -402,16 +420,10 @@ footer a:hover {
 
     .header-right-container {
         flex: 1 0 auto;
-    } 
+    }
 
     .rentals { /* grid container */
         grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 500px;
-    }
-
-    .listing-photos img {
-        width: 419px;
-        height: 398px; /* images look stretched */
     }
 }
 
@@ -419,11 +431,16 @@ footer a:hover {
 
    /* Everything in header-top becomes "Where to?" */
    /* The bottom menu changes, too. */
+    
+   header {
+    height: 146px;
+    border-bottom: 1px solid #DDD;
+   }
 
    .header-top {
         border: none;
     }
-
+    
     .header-top .content-wrap {
         width: 100%;
         padding: 14px 24px 0;
@@ -489,6 +506,7 @@ footer a:hover {
 
     .header__bottom {
         width: 100%;
+        margin-top: 0;
     }
 
     .carousel-wrapper {
@@ -496,11 +514,12 @@ footer a:hover {
     }
 
     .carousel-category-container {
-        column-gap: 18px;
+        -moz-column-gap: 18px;
+             column-gap: 18px;
     }
 
     .carousel-category-container li:first-child {
-        padding-left: 24px;
+        margin-left: 24px;
     }
 
     .carousel-arrow {
@@ -513,12 +532,16 @@ footer a:hover {
 
     .rentals { /* grid container */
         grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 420px;
+        margin-top: 168px;
     }
 
-    .listing-photos img {
-        width: 337px;
-        height: 320px; /* images look stretched */
+    .footer-content {
+        display: block;
+        margin-bottom: 40px;
+    }
+
+    .footer-section {
+        border-bottom: 1px #DDD solid;
     }
 }
 
@@ -526,12 +549,6 @@ footer a:hover {
  
      .rentals { /* grid container */
          grid-template-columns: 1fr;
-         grid-auto-rows: 578px;
-     }
- 
-     .listing-photos img {
-         width: 503px;
-         height: 476px; /* images look stretched */
      }
  }
 
