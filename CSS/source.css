@@ -303,11 +303,52 @@ header {
     
 }
 
+.listing-carousel-container {
+    width: 100%;
+    aspect-ratio: 20 / 19;
+    position: relative;
+    overflow: hidden;
+    border-radius: 13px;
+    margin-bottom: 12px;
+}
+
+.listing1 {
+    width: 100%;
+    position: absolute;
+    transition: all 0.5s;
+}
+
+.listing-photos {
+    margin-bottom: 12px;
+}
+
 .listing-photos img {
     aspect-ratio: 20 / 19;
     border-radius: 13px;
-    margin-bottom: 12px;
+}
 
+.btn__listing-carousel {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn__listing-carousel:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.btn__prev-photo {
+    top: 45%;
+    left: 4%;
+    display: none;
+}
+
+.btn__next-photo {
+    top: 45%;
+    right: 4%;
+    display: none;
 }
 
 .listing-details { /* grid container */
