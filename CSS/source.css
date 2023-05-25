@@ -351,6 +351,34 @@ header {
     display: none;
 }
 
+.indicator-dot-outer-container {
+    bottom: 3.5%;
+    left: 44%;
+    position: absolute;
+    /* z-index: 10; */
+    width: 55px;
+    display: flex;
+    overflow: hidden;
+}
+
+.indicator-dot-inner-container {
+    display: flex;
+}
+
+.indicator-dot {
+    background: rgba(255, 255, 255, 0.7);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    /* transition: opacity 0.2s cubic-bezier(0.455,0.03,0.515,0.955); */
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+}
+
+.indicator-dot-current {
+    background: rgba(255, 255, 255, 1);
+}
+
 .listing-details { /* grid container */
     display: grid;
     grid-template-columns: 81% 16%;
