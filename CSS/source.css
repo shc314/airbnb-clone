@@ -115,26 +115,6 @@ header {
     border: none;
 }
 
-.header-button-container-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    flex: 1 0 auto; /* pushes the filter to the right at 743px */
-}
-
-.header-button-container-top {
-   display: none;
-}
-
-.header-button-container-bottom {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    height: 16px;
-    border: none;
-}
-
 .header-button {
     padding: 14px 18px 19px;
     font-size: 15px;
@@ -531,24 +511,6 @@ footer a:hover {
         border: none;
     }
     
-    .header-top .content-wrap {
-        width: 100%;
-        padding: 14px 24px 0;
-    }
-
-    .header-top-container {
-        height: 55px;
-    }
-
-    header {
-        height: 146px;
-        border-bottom: 1px solid #DDD;
-    }
-
-   .header-top {
-        border: none;
-    }
-
     .header-top .content-wrap {
         width: 100%;
         padding: 14px 24px 0;
