@@ -21,7 +21,6 @@ a {
     text-decoration: none;
 }
 
-
 p {
     margin: 0.5rem 0;
 }
@@ -61,12 +60,16 @@ button {
 /* ---------------------------- Header Top Left --------------------------- */
 header {
     width: 100%;
-    height: 178px;
+    height: 179px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
     background-color: #FFF;
+}
+
+.header-bottom-border {
+    border-bottom: 2px solid #DDD;
 }
 
 .header-top {
@@ -90,6 +93,26 @@ header {
     align-items: center;
     height: 48px;
     border-radius: 30px;
+}
+
+.header-button-container-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    flex: 1 0 auto; /* pushes the filter to the right at 743px */
+}
+
+.header-button-container-top {
+   display: none;
+}
+
+.header-button-container-bottom {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 16px;
+    border: none;
 }
 
 .header-button-container-text {
@@ -223,6 +246,10 @@ header {
     line-height: 26px;
 }
 
+.carousel-arrow-hidden {
+    display: none;
+}
+
 .carousel-category-container {
     width: 100%; /* this fixed the issue with the arrows getting squished */
     display: flex;
@@ -287,18 +314,88 @@ header {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: auto auto;
-    column-gap: 25px;
-    row-gap: 25px;
+    grid-column-gap: 25px;
+    grid-row-gap: 25px;
 }
 
 .listing { /* grid items */
     /* might not need this */
 }
 
+.listing-carousel-container {
+    width: 100%;
+    aspect-ratio: 20 / 19;
+    position: relative;
+    overflow: hidden;
+    border-radius: 13px;
+    margin-bottom: 12px;
+}
+
+.listing1 {
+    width: 100%;
+    position: absolute;
+    transition: all 0.5s;
+}
+
+.listing-photos {
+    margin-bottom: 12px;
+}
+
 .listing-photos img {
     aspect-ratio: 20 / 19;
     border-radius: 13px;
-    margin-bottom: 12px;
+}
+
+.btn__listing-carousel {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.btn__listing-carousel:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+.btn__prev-photo {
+    top: 45%;
+    left: 4%;
+    display: none;
+}
+
+.btn__next-photo {
+    top: 45%;
+    right: 4%;
+    display: none;
+}
+
+.indicator-dot-outer-container {
+    bottom: 3.5%;
+    left: 44%;
+    position: absolute;
+    /* z-index: 10; */
+    width: 55px;
+    display: flex;
+    overflow: hidden;
+}
+
+.indicator-dot-inner-container {
+    display: flex;
+}
+
+.indicator-dot {
+    background: rgba(255, 255, 255, 0.7);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    /* transition: opacity 0.2s cubic-bezier(0.455,0.03,0.515,0.955); */
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+}
+
+.indicator-dot-current {
+    background: rgba(255, 255, 255, 1);
 }
 
 .listing-details { /* grid container */
@@ -307,6 +404,7 @@ header {
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 3%;
 }
+
 .location {
     font-weight: 600;
     font-size: 15px;
@@ -321,9 +419,11 @@ header {
 .distance, .dates, .price {
     grid-column-start: 1;
 }
+
 .price {
     margin-top: 6px;
 }
+
 .rating {
     grid-column-start: 2;
     grid-row-start: 1;
@@ -440,6 +540,24 @@ footer a:hover {
         height: 55px;
     }
 
+    header {
+        height: 146px;
+        border-bottom: 1px solid #DDD;
+    }
+
+   .header-top {
+        border: none;
+    }
+
+    .header-top .content-wrap {
+        width: 100%;
+        padding: 14px 24px 0;
+    }
+
+    .header-top-container {
+        height: 55px;
+    }
+
     .header-logo img {
         display: none;
     }
@@ -459,6 +577,7 @@ footer a:hover {
         color:#000;
         font-weight: 500;
         display: block;
+        text-align: left;
     }
 
     .header-button {
@@ -540,4 +659,3 @@ footer a:hover {
          grid-template-columns: 1fr;
      }
  }
-
