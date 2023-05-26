@@ -14,6 +14,7 @@ let dotContainerPosition = 0;
 nextImgButton.addEventListener('click', showNextImg);
 prevImgButton.addEventListener('click', showPrevImg);
 
+// Show the next image in the carousel when the next button is clicked
 function showNextImg() {
     if (currentImg === lastImg) {
         nextImgButton.style.display = 'none';
@@ -27,8 +28,10 @@ function showNextImg() {
 
     shiftIndicatorDotsLeft();
     highlightDot();
+    transformDots();
 }
 
+// Show the previous image in the carousel when the left button is clicked
 function showPrevImg() {
     if (currentImg === 0) {
         prevImgButton.style.display = 'none';
@@ -42,6 +45,7 @@ function showPrevImg() {
 
     shiftIndicatorDotsRight();
     highlightDot();
+    transformDots();
 }
 
 // Show or hide buttons when hovering over listing
@@ -67,7 +71,7 @@ function hideButton() {
     prevImgButton.style.display = 'none';
 }
 
-// Creates a span with a dot for each image
+// Create a span with a dot for each image
 function createIndicatorDots() {
     for(let i=0; i < images.length; i++) {
         const dot = document.createElement('span');
@@ -83,7 +87,7 @@ createIndicatorDots();
 
 let indicatorDots = document.querySelectorAll('.indicator-dot');
 
-// Shifts indicator dot continer to the left when the next button is clicked
+// Shift indicator dot continer to the left when the next button is clicked
 function shiftIndicatorDotsLeft() {
     if (currentImg > 2 && currentImg < images.length - 2) {
         dotContainerPosition -= 11;
@@ -91,7 +95,7 @@ function shiftIndicatorDotsLeft() {
     }
 }
 
-// Shifts indicator dot continer to the right when the previous button is clicked
+// Shift indicator dot continer to the right when the previous button is clicked
 function shiftIndicatorDotsRight() {
     if(currentImg > 1 && currentImg < images.length - 3) {
         dotContainerPosition += 11;
@@ -99,8 +103,33 @@ function shiftIndicatorDotsRight() {
     }
 }
 
-// Changes opacity of the dot that corresponds to the image being shown
+// Change opacity of the indicator dot that corresponds to the image being shown
 function highlightDot() {
     indicatorDots.forEach((dot) => dot.classList.remove('indicator-dot-current'));
     indicatorDots[currentImg].classList.add('indicator-dot-current');
 }
+
+// Change the size of the indicator dots
+function transformDots() {
+    if(currentImg < 3) {
+        indicatorDots[0].style.transform = 'scale(1)';
+        indicatorDots[1].style.transform = 'scale(1)';
+        indicatorDots[2].style.transform = 'scale(1)';
+        indicatorDots[3].style.transform = 'scale(0.8333334)';
+        indicatorDots[4].style.transform = 'scale(0.6666666)';
+    } else if(currentImg >= 3 && currentImg < images.length - 3) {
+        indicatorDots[currentImg - 2].style.transform = 'scale(0.6666666)';
+        indicatorDots[currentImg - 1].style.transform = 'scale(0.8333334)';
+        indicatorDots[currentImg].style.transform = 'scale(1)';
+        indicatorDots[currentImg + 1].style.transform = 'scale(0.8333334)';
+        indicatorDots[currentImg + 2].style.transform = 'scale(0.6666666)';
+    } else if(currentImg >= images.length - 3) {
+        indicatorDots[indicatorDots.length - 5].style.transform = 'scale(0.6666666)';
+        indicatorDots[indicatorDots.length - 4].style.transform = 'scale(0.8333334)';
+        indicatorDots[indicatorDots.length - 3].style.transform = 'scale(1)';
+        indicatorDots[indicatorDots.length - 2].style.transform = 'scale(1)';
+        indicatorDots[indicatorDots.length - 1].style.transform = 'scale(1)';
+    }
+}
+
+transformDots();
