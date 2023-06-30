@@ -311,14 +311,17 @@ header {
     margin-bottom: 12px;
 }
 
-.listing1 {
+/* .listing1 {
     width: 100%;
     position: absolute;
     transition: all 0.5s;
-}
+} */
 
 .listing-photos {
     margin-bottom: 12px;
+    width: 100%;
+    position: absolute;
+    transition: all 0.5s;
 }
 
 .listing-photos img {
