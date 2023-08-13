@@ -31,19 +31,10 @@ carousels.forEach(carousel => {
      transformDots(indicatorDots, 0, images);
 });
 
-let imageCollection;
-function getImageList(e) {
-    imageCollection = e.target.parentElement.children[0].children; //HTMLCollection cannot use forEach
-    images = Array.from(imageCollection); // convert HTMLCollection to array
-    images.forEach((image, index) => {
-        image.style.transform = `translateX(${index * 100}%)`;
-    });
-    lastImg = images.length - 1;
-}
+
 
 // Show the next image in the carousel when the next button is clicked
 function showNextImg(container, currentImg, lastImg, images) {
-    // getImageList(e);
     if (currentImg == lastImg) { // currentImg is a string, lastImg is a number
         container.querySelector('.btn__next-photo').style.display = 'none';
     } else {
@@ -64,7 +55,6 @@ function showNextImg(container, currentImg, lastImg, images) {
 
 // Show the previous image in the carousel when the left button is clicked
 function showPrevImg(container, currentImg, images) {
-    // getImageList(e);
     if (currentImg == 0) {
         container.querySelector('.btn__prev-photo').style.display = 'none';
     } else {
