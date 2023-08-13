@@ -9,12 +9,6 @@ carousels.forEach(carousel => {
         image.style.transform = `translateX(${index * 100}%)`;
     });
 
-    // Create all the dots in their initial state for each carousel
-    // const dotContainer = carousel.querySelector('.indicator-dot-inner-container');
-    // createIndicatorDots(dotContainer, numImages);
-    // let indicatorDots = dotContainer.children;
-    // transformDots(indicatorDots);
-
     carousel.addEventListener('click', (e) => {
         const container = e.currentTarget;
         let currentImg = container.getAttribute('data-current-img');
@@ -28,12 +22,14 @@ carousels.forEach(carousel => {
             showPrevImg(container, currentImg, images);
         }
     });
-});
 
-const dotContainers = document.querySelectorAll('.indicator-dot-inner-container');
-let dotContainer;
-let dotContainerPosition = 0;
-let indicatorDots;
+     // Create all the dots in their initial state for each carousel
+     const dotContainer = carousel.querySelector('.indicator-dot-inner-container');
+     dotContainer.setAttribute('data-dot-container-pos', 0);
+     createIndicatorDots(dotContainer, numImages);
+     let indicatorDots = Array.from(dotContainer.children);
+     transformDots(indicatorDots, 0, images);
+});
 
 let imageCollection;
 function getImageList(e) {
@@ -59,8 +55,8 @@ function showNextImg(container, currentImg, lastImg, images) {
         image.style.transform = `translateX(${100 * (index - currentImg)}%)`;
     });
 
-    dotContainer = container.querySelector('.indicator-dot-inner-container');
-    indicatorDots = Array.from(dotContainer.children);
+    let dotContainer = container.querySelector('.indicator-dot-inner-container');
+    let indicatorDots = Array.from(dotContainer.children);
     shiftIndicatorDotsLeft(dotContainer, currentImg, images);
     highlightDot(indicatorDots, currentImg);
     transformDots(indicatorDots, currentImg, images);
@@ -80,8 +76,8 @@ function showPrevImg(container, currentImg, images) {
         slide.style.transform = `translateX(${100 * (index - currentImg)}%)`;
     });
 
-    dotContainer = container.querySelector('.indicator-dot-inner-container');
-    indicatorDots = Array.from(dotContainer.children);
+    let dotContainer = container.querySelector('.indicator-dot-inner-container');
+    let indicatorDots = Array.from(dotContainer.children);
     shiftIndicatorDotsRight(dotContainer, currentImg, images);
     highlightDot(indicatorDots, currentImg);
     transformDots(indicatorDots, currentImg, images);
@@ -131,7 +127,9 @@ function createIndicatorDots(dotContainer, numImages) {
 // Shift indicator dot continer to the left when the next button is clicked
 function shiftIndicatorDotsLeft(dotContainer, currentImg, images) {
     if (currentImg > 2 && currentImg < images.length - 2) {
+        let dotContainerPosition = dotContainer.getAttribute('data-dot-container-pos');
         dotContainerPosition -= 11;
+        dotContainer.setAttribute('data-dot-container-pos', dotContainerPosition);
         dotContainer.style.transform = `translateX(${dotContainerPosition}px)`;
     }
 }
@@ -139,8 +137,10 @@ function shiftIndicatorDotsLeft(dotContainer, currentImg, images) {
 // Shift indicator dot continer to the right when the previous button is clicked
 function shiftIndicatorDotsRight(dotContainer, currentImg, images) {
     if(currentImg > 1 && currentImg < images.length - 3) {
+        let dotContainerPosition = Number(dotContainer.getAttribute('data-dot-container-pos'));
         dotContainerPosition += 11;
         dotContainer.style.transform = `translateX(${dotContainerPosition}px)`;
+        dotContainer.setAttribute('data-dot-container-pos', dotContainerPosition);
     }
 }
 
@@ -172,11 +172,3 @@ function transformDots(indicatorDots, currentImg, images) {
         indicatorDots[indicatorDots.length - 1].style.transform = 'scale(1)';
     }
 }
-
-// Create all the dots in their initial state for each carousel
-dotContainers.forEach((dotContainer) => {
-    let numImages = dotContainer.parentElement.parentElement.children[0].children.length;
-    createIndicatorDots(dotContainer, numImages);
-    indicatorDots = Array.from(dotContainer.children);
-    transformDots(indicatorDots);
-});
