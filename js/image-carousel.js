@@ -11,7 +11,7 @@ carousels.forEach(carousel => {
 
     carousel.addEventListener('click', (e) => {
         const container = e.currentTarget;
-        let currentImg = container.getAttribute('data-current-img');
+        let currentImg = Number(container.getAttribute('data-current-img'));
         let lastImg = numImages - 1;
 
         if(e.target.classList.contains('btn__next-photo')) {
@@ -31,11 +31,9 @@ carousels.forEach(carousel => {
      transformDots(indicatorDots, 0, images);
 });
 
-
-
 // Show the next image in the carousel when the next button is clicked
 function showNextImg(container, currentImg, lastImg, images) {
-    if (currentImg == lastImg) { // currentImg is a string, lastImg is a number
+    if (currentImg === lastImg) {
         container.querySelector('.btn__next-photo').style.display = 'none';
     } else {
         currentImg++;
@@ -55,7 +53,7 @@ function showNextImg(container, currentImg, lastImg, images) {
 
 // Show the previous image in the carousel when the left button is clicked
 function showPrevImg(container, currentImg, images) {
-    if (currentImg == 0) {
+    if (currentImg === 0) {
         container.querySelector('.btn__prev-photo').style.display = 'none';
     } else {
         currentImg--;
@@ -82,12 +80,12 @@ listings.forEach(listing => {
 
 function showButton(e) {
     const container = e.target.querySelector('.listing-carousel-container');
-    const currentImg = container.getAttribute('data-current-img');
+    const currentImg = Number(container.getAttribute('data-current-img'));
     const lastImg = container.getAttribute('data-num-images') - 1;
-    if (currentImg == lastImg) {
+    if (currentImg === lastImg) {
         container.querySelector('.btn__prev-photo').style.display = 'block'
         container.querySelector('.btn__next-photo').style.display = 'none';
-    } else if (currentImg == 0) {
+    } else if (currentImg === 0) {
         container.querySelector('.btn__prev-photo').style.display = 'none'
         container.querySelector('.btn__next-photo').style.display = 'block';
     } else {
@@ -114,17 +112,17 @@ function createIndicatorDots(dotContainer, numImages) {
     }
 }
 
-// Shift indicator dot continer to the left when the next button is clicked
+// Shift indicator dot container to the left when the next button is clicked
 function shiftIndicatorDotsLeft(dotContainer, currentImg, images) {
     if (currentImg > 2 && currentImg < images.length - 2) {
-        let dotContainerPosition = dotContainer.getAttribute('data-dot-container-pos');
+        let dotContainerPosition = Number(dotContainer.getAttribute('data-dot-container-pos'));
         dotContainerPosition -= 11;
         dotContainer.setAttribute('data-dot-container-pos', dotContainerPosition);
         dotContainer.style.transform = `translateX(${dotContainerPosition}px)`;
     }
 }
 
-// Shift indicator dot continer to the right when the previous button is clicked
+// Shift indicator dot container to the right when the previous button is clicked
 function shiftIndicatorDotsRight(dotContainer, currentImg, images) {
     if(currentImg > 1 && currentImg < images.length - 3) {
         let dotContainerPosition = Number(dotContainer.getAttribute('data-dot-container-pos'));
