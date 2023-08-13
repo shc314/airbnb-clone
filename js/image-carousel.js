@@ -9,26 +9,32 @@ carousels.forEach(carousel => {
         image.style.transform = `translateX(${index * 100}%)`;
     });
 
+    // Create all the dots in their initial state for each carousel
+    const dotContainer = carousel.querySelector('.indicator-dot-inner-container');
+    dotContainer.setAttribute('data-dot-container-pos', 0);
+    createIndicatorDots(dotContainer, numImages);
+    const indicatorDots = Array.from(dotContainer.children);
+    transformDots(indicatorDots, 0, images);
+
     carousel.addEventListener('click', (e) => {
         const container = e.currentTarget;
         let currentImg = Number(container.getAttribute('data-current-img'));
-        let lastImg = numImages - 1;
+        const lastImg = numImages - 1;
 
         if(e.target.classList.contains('btn__next-photo')) {
             showNextImg(container, currentImg, lastImg, images);
+            shiftIndicatorDotsLeft(dotContainer, currentImg, images);
+            highlightDot(indicatorDots, currentImg);
+            transformDots(indicatorDots, currentImg, images);
         }
 
         if(e.target.classList.contains('btn__prev-photo')) {
             showPrevImg(container, currentImg, images);
+            shiftIndicatorDotsRight(dotContainer, currentImg, images);
+            highlightDot(indicatorDots, currentImg);
+            transformDots(indicatorDots, currentImg, images);
         }
     });
-
-     // Create all the dots in their initial state for each carousel
-     const dotContainer = carousel.querySelector('.indicator-dot-inner-container');
-     dotContainer.setAttribute('data-dot-container-pos', 0);
-     createIndicatorDots(dotContainer, numImages);
-     let indicatorDots = Array.from(dotContainer.children);
-     transformDots(indicatorDots, 0, images);
 });
 
 // Show the next image in the carousel when the next button is clicked
@@ -43,12 +49,6 @@ function showNextImg(container, currentImg, lastImg, images) {
     images.forEach((image, index) => {
         image.style.transform = `translateX(${100 * (index - currentImg)}%)`;
     });
-
-    let dotContainer = container.querySelector('.indicator-dot-inner-container');
-    let indicatorDots = Array.from(dotContainer.children);
-    shiftIndicatorDotsLeft(dotContainer, currentImg, images);
-    highlightDot(indicatorDots, currentImg);
-    transformDots(indicatorDots, currentImg, images);
 }
 
 // Show the previous image in the carousel when the left button is clicked
@@ -63,12 +63,6 @@ function showPrevImg(container, currentImg, images) {
     images.forEach((slide, index) => {
         slide.style.transform = `translateX(${100 * (index - currentImg)}%)`;
     });
-
-    let dotContainer = container.querySelector('.indicator-dot-inner-container');
-    let indicatorDots = Array.from(dotContainer.children);
-    shiftIndicatorDotsRight(dotContainer, currentImg, images);
-    highlightDot(indicatorDots, currentImg);
-    transformDots(indicatorDots, currentImg, images);
 }
 
 // Show or hide buttons when hovering over listing
