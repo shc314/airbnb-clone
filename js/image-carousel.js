@@ -22,17 +22,19 @@ carousels.forEach(carousel => {
         const lastImg = numImages - 1;
 
         if(e.target.classList.contains('btn__next-photo')) {
-            showNextImg(container, currentImg, lastImg, images);
-            shiftIndicatorDotsLeft(dotContainer, currentImg, images);
+            currentImg = showNextImg(container, currentImg, lastImg, images);
+            shiftIndicatorDotsLeft(dotContainer, currentImg, numImages);
             highlightDot(indicatorDots, currentImg);
-            transformDots(indicatorDots, currentImg, images);
+            transformDots(indicatorDots, currentImg, numImages);
+            showButton(container, currentImg, lastImg);
         }
 
         if(e.target.classList.contains('btn__prev-photo')) {
-            showPrevImg(container, currentImg, images);
-            shiftIndicatorDotsRight(dotContainer, currentImg, images);
+            currentImg = showPrevImg(container, currentImg, images);
+            shiftIndicatorDotsRight(dotContainer, currentImg, numImages);
             highlightDot(indicatorDots, currentImg);
-            transformDots(indicatorDots, currentImg, images);
+            transformDots(indicatorDots, currentImg, numImages);
+            showButton(container, currentImg, lastImg);
         }
     });
 });
@@ -49,6 +51,8 @@ function showNextImg(container, currentImg, lastImg, images) {
     images.forEach((image, index) => {
         image.style.transform = `translateX(${100 * (index - currentImg)}%)`;
     });
+    
+    return currentImg;
 }
 
 // Show the previous image in the carousel when the left button is clicked
@@ -63,19 +67,12 @@ function showPrevImg(container, currentImg, images) {
     images.forEach((slide, index) => {
         slide.style.transform = `translateX(${100 * (index - currentImg)}%)`;
     });
+    
+    return currentImg;
 }
 
-// Show or hide buttons when hovering over listing
-const listings = document.querySelectorAll('.listing');
-listings.forEach(listing => {
-    listing.addEventListener('pointerenter', showButton);
-    listing.addEventListener('pointerleave', hideButton);
-});
-
-function showButton(e) {
-    const container = e.target.querySelector('.listing-carousel-container');
-    const currentImg = Number(container.getAttribute('data-current-img'));
-    const lastImg = container.getAttribute('data-num-images') - 1;
+// Show or hides the previous and next buttons, depending on the current slide's position in the sequence
+function showButton(container, currentImg, lastImg) {
     if (currentImg === lastImg) {
         container.querySelector('.btn__prev-photo').style.display = 'block'
         container.querySelector('.btn__next-photo').style.display = 'none';
@@ -86,6 +83,21 @@ function showButton(e) {
         container.querySelector('.btn__prev-photo').style.display = 'block'
         container.querySelector('.btn__next-photo').style.display = 'block';
     }
+}
+
+// Show or hide buttons when hovering over listing
+const listings = document.querySelectorAll('.listing');
+listings.forEach(listing => {
+    listing.addEventListener('pointerenter', showButtonOnHover);
+    listing.addEventListener('pointerleave', hideButton);
+});
+
+// Show previous and next button on mouseover
+function showButtonOnHover(e) {
+    const container = e.target.querySelector('.listing-carousel-container');
+    const currentImg = Number(container.getAttribute('data-current-img'));
+    const lastImg = container.getAttribute('data-num-images') - 1;
+    showButton(container, currentImg, lastImg);
 }
 
 // hide both buttons
@@ -107,8 +119,8 @@ function createIndicatorDots(dotContainer, numImages) {
 }
 
 // Shift indicator dot container to the left when the next button is clicked
-function shiftIndicatorDotsLeft(dotContainer, currentImg, images) {
-    if (currentImg > 2 && currentImg < images.length - 2) {
+function shiftIndicatorDotsLeft(dotContainer, currentImg, numImages) {
+    if (currentImg > 2 && currentImg < numImages - 2) {
         let dotContainerPosition = Number(dotContainer.getAttribute('data-dot-container-pos'));
         dotContainerPosition -= 11;
         dotContainer.setAttribute('data-dot-container-pos', dotContainerPosition);
@@ -117,8 +129,8 @@ function shiftIndicatorDotsLeft(dotContainer, currentImg, images) {
 }
 
 // Shift indicator dot container to the right when the previous button is clicked
-function shiftIndicatorDotsRight(dotContainer, currentImg, images) {
-    if(currentImg > 1 && currentImg < images.length - 3) {
+function shiftIndicatorDotsRight(dotContainer, currentImg, numImages) {
+    if(currentImg > 1 && currentImg < numImages - 3) {
         let dotContainerPosition = Number(dotContainer.getAttribute('data-dot-container-pos'));
         dotContainerPosition += 11;
         dotContainer.style.transform = `translateX(${dotContainerPosition}px)`;
@@ -133,20 +145,20 @@ function highlightDot(indicatorDots, currentImg) {
 }
 
 // Change the size of the indicator dots
-function transformDots(indicatorDots, currentImg, images) {
+function transformDots(indicatorDots, currentImg, numImages) {
     if(currentImg < 3) {
         indicatorDots[0].style.transform = 'scale(1)';
         indicatorDots[1].style.transform = 'scale(1)';
         indicatorDots[2].style.transform = 'scale(1)';
         indicatorDots[3].style.transform = 'scale(0.8333334)';
         indicatorDots[4].style.transform = 'scale(0.6666666)';
-    } else if(currentImg >= 3 && currentImg < images.length - 3) {
+    } else if(currentImg >= 3 && currentImg < numImages - 3) {
         indicatorDots[currentImg - 2].style.transform = 'scale(0.6666666)';
         indicatorDots[currentImg - 1].style.transform = 'scale(0.8333334)';
         indicatorDots[currentImg].style.transform = 'scale(1)';
         indicatorDots[currentImg + 1].style.transform = 'scale(0.8333334)';
         indicatorDots[currentImg + 2].style.transform = 'scale(0.6666666)';
-    } else if(currentImg >= images.length - 3) {
+    } else if(currentImg >= numImages - 3) {
         indicatorDots[indicatorDots.length - 5].style.transform = 'scale(0.6666666)';
         indicatorDots[indicatorDots.length - 4].style.transform = 'scale(0.8333334)';
         indicatorDots[indicatorDots.length - 3].style.transform = 'scale(1)';
