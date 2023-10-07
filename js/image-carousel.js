@@ -1,25 +1,25 @@
-const carousels = document.querySelectorAll('.listing-carousel-container');
-carousels.forEach(carousel => {
-    carousel.setAttribute('data-current-img', 0);
-    const images = carousel.querySelectorAll('.listing-photos');
+const listings = document.querySelectorAll('.listing');
+listings.forEach(listing => {
+    listing.setAttribute('data-current-img', 0);
+    const images = listing.querySelectorAll('.listing-photos');
     const numImages = images.length;
-    carousel.setAttribute('data-num-images', numImages);
+    listing.setAttribute('data-num-images', numImages);
+    const lastImg = numImages - 1;
 
     images.forEach((image, index) => {
         image.style.transform = `translateX(${index * 100}%)`;
     });
 
     // Create all the dots in their initial state for each carousel
-    const dotContainer = carousel.querySelector('.indicator-dot-inner-container');
+    const dotContainer = listing.querySelector('.indicator-dot-inner-container');
     dotContainer.setAttribute('data-dot-container-pos', 0);
     createIndicatorDots(dotContainer, numImages);
     const indicatorDots = Array.from(dotContainer.children);
     transformDots(indicatorDots, 0, images);
 
-    carousel.addEventListener('click', (e) => {
+    listing.addEventListener('click', (e) => {
         const container = e.currentTarget;
         let currentImg = Number(container.getAttribute('data-current-img'));
-        const lastImg = numImages - 1;
 
         if(e.target.classList.contains('btn__next-photo')) {
             currentImg = showNextImg(container, currentImg, lastImg, images);
@@ -37,6 +37,14 @@ carousels.forEach(carousel => {
             showButton(container, currentImg, lastImg);
         }
     });
+
+    listing.addEventListener('pointerenter', (e) => {
+        const container = e.currentTarget;
+        let currentImg = Number(container.getAttribute('data-current-img'));
+        showButton(container, currentImg, lastImg);
+    });
+
+    listing.addEventListener('pointerleave', hideButton);
 });
 
 // Show the next image in the carousel when the next button is clicked
@@ -85,25 +93,10 @@ function showButton(container, currentImg, lastImg) {
     }
 }
 
-// Show or hide buttons when hovering over listing
-const listings = document.querySelectorAll('.listing');
-listings.forEach(listing => {
-    listing.addEventListener('pointerenter', showButtonOnHover);
-    listing.addEventListener('pointerleave', hideButton);
-});
-
-// Show previous and next button on mouseover
-function showButtonOnHover(e) {
-    const container = e.target.querySelector('.listing-carousel-container');
-    const currentImg = Number(container.getAttribute('data-current-img'));
-    const lastImg = container.getAttribute('data-num-images') - 1;
-    showButton(container, currentImg, lastImg);
-}
-
 // hide both buttons
 function hideButton(e) {
-    e.target.children[0].children[1].style.display = 'none'; // prevImgButton
-    e.target.children[0].children[2].style.display = 'none'; // nextImgButton
+    e.target.querySelector('.btn__prev-photo').style.display = 'none';
+    e.target.querySelector('.btn__next-photo').style.display = 'none';
 }
 
 // Create a span with a dot for each image
